@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sum Numbers</title>
+</head>
+<body>
+<input type="text" /> + <input type="text" /> = <input type="text" />
+<input type="button" value="Calc" onclick="calc()"/>
+<script>
+function calc() {
+    var number1 = document.getElementsByTagName("input")[0].value;
+    var number2 = document.getElementsByTagName("input")[1].value;
+    if(number1.length > 0 && number2 .length > 0){
+    var sum = parseInt(number1) + parseInt(number2);
+    document.getElementsByTagName("input")[2].value = sum;
+    }
+else{
+    return false;
+}
+}
+</script>
+</body>

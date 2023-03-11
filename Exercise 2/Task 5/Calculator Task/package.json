@@ -1,0 +1,15 @@
+{
+  "name": "task-5",
+  "version": "1.0.0",
+  "description": "Homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+    },
+  "author": "Stanislav",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
