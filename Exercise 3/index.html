@@ -36,8 +36,7 @@
                 <div><input type="text" name="username" required /></div>
                 <div>Password:</div>
                 <div><input type="password" name="passwd" required /></div>
-                <br>
-                <div><input type="button" value="Login" id="buttonLoginUser"/></div>
+                <div><input type="button" id="buttonLoginUser" value="Login" /></div>
             </form>
         </section>
 
@@ -48,10 +47,8 @@
                 <div><input type="text" name="username" required /></div>
                 <div>Password:</div>
                 <div><input type="password" name="passwd" required /></div>
-                <br>
-                <div><input type="button" value="Register" id="buttonRegisterUser" /></div>
+                <div><input id="buttonRegisterUser" type="button" value="Register" /></div>
             </form>
-
         </section>
 
         <section id="viewBooks">
@@ -64,17 +61,6 @@
                         <th>Description</th>
                         <th>Actions</th>
                     </tr>
-
-                    <tr>
-                        <td>Book title</td>
-                        <td>Book author</td>
-                        <td>Book description</td>
-                        <td>
-                            <a href="#">[Delete]</a>
-                            <a href="#">[Edit]</a>
-                        </td>
-                    </tr>
-
                 </table>
             </div>
         </section>
@@ -88,10 +74,8 @@
                 <div><input type="text" name="author" required /></div>
                 <div>Description:</div>
                 <div><textarea name="descr" rows="10" required></textarea></div>
-                <br>
-                <div><input type="submit" value="Create" /></div>
+                <div><input type="button" id="buttonCreateBook" value="Create" /></div>
             </form>
-
         </section>
 
         <section id="viewEditBook">
@@ -104,11 +88,9 @@
                 <div><input type="text" name="author" required /></div>
                 <div>Description:</div>
                 <div><textarea name="descr" rows="10" required></textarea></div>
-                <br>
-                <div><input type="submit" value="Edit" /></div>
+                <div><input type="button" id="buttonEditBook" value=" Edit" /></div>
             </form>
         </section>
-
     </main>
     <footer>Book Library - Simple SPA Application</footer>
 </body>
