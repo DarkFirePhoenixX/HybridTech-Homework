@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Security-Policy"
+		content="default-src *; style-src 'self' http://* 'unsafe-inline'; img-src 'self' data:; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+	<meta name="color-scheme" content="light dark">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="js/jquery-1.5.0.mobile.min.css">
+	<style>
+		/* For avoiding title truncation in wp8 */
+		.ui-header .ui-title {
+			overflow: visible !important;
+		}
+
+		/* For fixing the absolute position issue for the default cordova gen page*/
+		#cjp-accordion1 .app {
+			left: 5px !important;
+			margin: 5px !important;
+			position: relative !important;
+		}
+	</style>
+	<title>Hello World</title>
+</head>
+
+<body>
+	<!-- page 1 -->
+	<div data-role="page" id="main-page">
+		<div data-role="header" class="header">
+			<h1 id="app-title">MyDevice App</h1>
+			<a href="#main-page" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext" data-transition="slide" data-role="button"
+				rel="external">Home</a>
+		</div>
+
+		<div class="ui-content" role="main">
+			<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+				<li>
+					Cordova version :
+					<span id="cordovaVersion"></span>
+				</li>
+				<li>
+					Device's manufacturer :
+					<span id="manufacturer"></span>
+				</li>
+				<li>
+					Is it running on a simulator :
+					<span id="isVirtual"></span>
+				</li>
+				<li>
+					Device's model :
+					<span id="deviceModel"></span>
+				</li>
+				<li>
+					Device's operating system:
+					<span id="operatingSystem"></span>
+				</li>
+				<li>
+					Operating system version:
+					<span id="osVersion"></span>
+				</li>
+				<li>
+					Universally Unique Identifier:
+					<span id="uuid"></span>
+				</li>
+				<li>
+					Device hardware serial number:
+					<span id="serial"></span>
+				</li>
+				<li>
+					Battery Percentage:
+					<span id="batteryStatus"></span>
+				</li>
+				<li>
+					<div class="ui-checkbox">
+						<label for="checkbox-enhanced" class="ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left"
+							id="isPluggedLabel">Plugged
+						</label>
+					</div>
+				</li>
+				<li>
+					Connection type:
+					<span id="connectionType"></span>
+				</li>
+			</ul>
+		</div><!-- end page 1 content -->
+
+		<div data-role="footer" data-position="fixed">
+			<h4>
+				<a href="#geolocation-page" data-transition="slide" data-role="button"
+					class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location">GPS</a>
+			</h4>
+		</div><!-- /footer -->
+	</div>
+	<!-- /page1 -->
+
+	<!-- page 2 -->
+	<div data-role="page" id="geolocation-page">
+		<div data-role="header" class="header">
+			<h1 id="app-title">MyDevice App</h1>
+			<a href="/" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext"
+				rel="external">Home</a>
+		</div>
+
+		<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			<li>
+				Latitude :
+				<span id="latitude"></span>
+			</li>
+			<li>
+				Longitude :
+				<span id="longitude"></span>
+			</li>
+			<li>
+				Altitude :
+				<span id="altitude"></span>
+			</li>
+			<li>
+				Accuracy
+				<span id="accuracy"></span>
+			</li>
+			<li>
+				Altitude Accuracy
+				<span id="altitudeAccuracy"></span>
+			</li>
+		</ul>
+
+		<footer data-role="footer" data-position="fixed">
+			<h4>
+				<a href="#main-page" data-transition="slide" data-role="button"
+					class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-arrow-l">Info</a>
+				<a href="#camera-page" data-transition="slide" data-role="button"
+					class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-arrow-r">Camera</a>
+			</h4>
+		</footer>
+	</div><!-- /page2 -->
+
+	<!-- page 3 -->
+	<div data-role="page" id="camera-page">
+		<div data-role="header" class="header">
+			<h1 id="app-title">MyDevice App</h1>
+			<a href="/" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext"
+				rel="external">Home</a>
+		</div>
+
+		<div class="ui-content">
+			<button id="camera-btn" data-role="button" data-icon="camera">
+				CLICK
+			</button>
+			<img src="#" alt="text" id="myImage" class="not-displayed" style="margin: auto;" />
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<h4>
+				<a href="#geolocation-page" data-transition="slide" data-role="button"
+					class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location">GPS</a>
+			</h4>
+		</div><!-- /footer -->
+	</div><!-- /page3 -->
+
+	<script src="cordova.js"></script>
+	<script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+	<script type="text/javascript" id="jqm-trans-disable">
+		/* For having a faster transition */
+		$(document).on("mobileinit", function () {
+			$.mobile.defaultPageTransition = "none";
+			$.mobile.defaultDialogTransition = "none";
+		});
+	</script>
+	<script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
+	<script src="js/index.js"></script>
+</body>
+
+</html>
